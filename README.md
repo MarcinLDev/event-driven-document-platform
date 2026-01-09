@@ -11,6 +11,10 @@ proprietary business logic and real customer data.
 ## Architecture Overview
 **The platform follows a decoupled, event-driven architecture combined with a Medallion Data Lake design (Bronze / Silver / Gold).**
 
+## Bronze Layer – Event-Driven Processing Flow
+
+![Bronze Layer Event Flow](architecture/bronze-event-flow.png)
+
 **Core principles:**
 - Event-driven processing (Kafka)
 - Clear separation of responsibilities
