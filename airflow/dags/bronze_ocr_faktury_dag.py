@@ -23,20 +23,15 @@ from airflow.providers.amazon.aws.hooks.s3 import S3Hook
 from pipelines.bronze.ocr_faktury.process import process_single_pdf
 from pipelines.bronze.ocr_faktury.s3_utils import list_pdf_keys
 
-
-# =========================
 # KONFIGURACJA
-# =========================
 
 BUCKET = "bucket_example"
-
 PREFIX_RAW = "example/path"
 PREFIX_OCR = "example/path"
 
 
-# =========================
+
 # DAG
-# =========================
 
 with DAG(
     dag_id="bronze_ocr_faktury",
@@ -84,9 +79,7 @@ with DAG(
             pdf_key=pdf_key,
         )
 
-    # -------------------------------------------------
-    # DYNAMIC TASK MAPPING (fan-out)
-    # -------------------------------------------------
+    # DYNAMIC TASK MAPPING
     process_pdf.expand(
         pdf_key=list_pdfs()
     )

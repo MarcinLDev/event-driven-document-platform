@@ -8,7 +8,7 @@ from app.kafka_producer import get_producer
 router = APIRouter(prefix="/invoices", tags=["Invoices"])
 
 BUCKET = os.getenv("S3_BUCKET")
-PREFIX_RAW = "01_bronze/saasPrzywidzData/raw_faktury/"
+PREFIX_RAW = "01_bronze/raw_invoice/"
 
 if not BUCKET:
     raise RuntimeError("S3_BUCKET canno't find the BUCKET, pleas check config file or AWS platform")
